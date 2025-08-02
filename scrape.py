@@ -1,3 +1,6 @@
+pip install beautifulsoup4
+
+
 import requests
 url="https://quotes.toscrape.com"
 response=requests.get(url)
@@ -21,4 +24,24 @@ for i in range(len(tags)):
   for j in tags[i].find_all('a',class_="tag"):
     k.append(j.text)
   total_tags.append(','.join(k))
+
 print(total_tags)
+
+
+
+
+
+
+
+
+
+import pandas as pd
+dataset=pd.DataFrame()
+dataset['Quote']=quotes
+dataset['Tags']=total_tags
+dataset['Author']=authors
+dataset
+
+dataset.to_csv('quotes.csv')
+
+
